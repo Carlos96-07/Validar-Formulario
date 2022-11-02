@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/validar-form.css">
+    <title>Validar--Formulario</title>
+</head>
+<body>
+    <form name="formulario" class="formu1">
+        <h3><i>Formulario:</i></h3>
+            <div>
+                <label>Email</label>
+            </div>
+            <div>
+                <input type="text" id="correo">
+            </div>
+            <div>
+                <label>Password</label>
+            </div>
+            <div>
+                <input type="password" id="contraseña">
+            </div>
+            <br>
+            <br>
+           <button type="button" id="regis" onclick="Registro()">Registraciones</button>
+           <button type="button" id="log" onclick="login()">Ingresar</button>
+           <button type="button" id="bor" onclick="borrar()">Eliminar</button>     
+    </form>
+  
+        <script>
+            
+            var objeto_login = function(){
+                var objetos = {
+                    correo: "" , 
+                    contraseña: ""  
+                }
+                return objetos;  
+            };
+            
+            function Registro() {
+                var correo = document.getElementById("correo").value;
+                var contraseña = document.getElementById("contraseña").value;
+                var y = objeto_login;
+                y.correo = correo; 
+                y.contraseña = contraseña;
+                return y;
+            };
+
+            var f = Registro();
+
+            function validar_login(correo,contraseña) {
+              if (f.correo == correo && f.contraseña == contraseña) {
+                  alert("Bienvenido te has Unido" + " " + f.correo )
+              }else{
+                alert("correo y/o contraseña incorrecto")
+              }
+            };
+
+            function login(){
+                correo = document.getElementById("correo").value;
+             contraseña = document.getElementById("contraseña").value;
+             validar_login(correo , contraseña)
+            };
+
+            function borrar() {
+           document.getElementById("correo").value = null;
+           document.getElementById("contraseña").value = null;
+          };
+        </script>
+
+</body>
+</html>
